@@ -1,4 +1,4 @@
 ### System Design Notes
 
-- [x] Caching strategies: Write-through vs Write-back.
-- [ ] TODO: CAP Theorem summary.
+- **Caching**: Write-through cache is safer for data consistency; write-back is faster but riskier.
+- [ ] TODO: Summarize CAP Theorem for distributed systems.
