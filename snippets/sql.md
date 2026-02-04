@@ -1,4 +1,4 @@
 ### SQL Snippets
 
-- [x] Indexing strategy for high-concurrency tables.
-- [ ] TODO: Add window function examples.
+- **Indexing strategy**: For high-concurrency tables, favor covering indexes to minimize lookups.
+- [ ] TODO: Add recursive CTE examples for tree traversal.
