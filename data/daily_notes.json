@@ -1,1 +1,22 @@
-[]
+[
+  {
+    "topic": "Python asyncio",
+    "summary": "Exploring event loops and coroutines in high-performance apps.",
+    "category": "python"
+  },
+  {
+    "topic": "SQL Indexing",
+    "summary": "Optimizing B-Tree indexes for read-heavy workloads.",
+    "category": "sql"
+  },
+  {
+    "topic": "System Design",
+    "summary": "Latency vs Throughput trade-offs in distributed systems.",
+    "category": "system-design"
+  },
+  {
+    "topic": "API Security",
+    "summary": "Implementing OAuth2 and JWT best practices.",
+    "category": "general"
+  }
+]
