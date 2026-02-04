@@ -19,12 +19,20 @@ def update_log():
         os.makedirs(LOGS_DIR)
         
     # Load pool of realistic notes
-    try:
-        with open(NOTES_FILE, 'r') as f:
-            notes_pool = json.load(f)
-    except Exception as e:
-        print(f"Error loading notes: {e}")
-        notes_pool = [{"topic": "General Review", "summary": "Reviewed recent documentation and code updates."}]
+    notes_pool = []
+    if os.path.exists(NOTES_FILE):
+        try:
+            with open(NOTES_FILE, 'r') as f:
+                notes_pool = json.load(f)
+        except Exception as e:
+            print(f"Error loading notes: {e}")
+
+    # Robustness check: Ensure pool is not empty
+    if not isinstance(notes_pool, list) or len(notes_pool) == 0:
+        notes_pool = [{
+            "topic": "Documentation Review", 
+            "summary": "Refreshed knowledge on recent library updates and best practices."
+        }]
     
     selected_note = random.choice(notes_pool)
     entry = f"- {date_str}: {selected_note['topic']} - {selected_note['summary']}\n"
