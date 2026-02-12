@@ -14,6 +14,8 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -27,10 +29,15 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
           git add .
+          
           if git diff --staged --quiet; then
-            echo "No changes to commit"
+            echo "No changes detected. Skipping commit."
           else
+            echo "Changes detected. Committing..."
             git commit -m "docs: daily learning update $(date +'%Y-%m-%d')"
-            git push
+            echo "Attempting to push to origin main..."
+            # Using --force-with-lease to ensure we don't overwrite if repo state changed
+            git push origin main
           fi
