@@ -17,6 +17,7 @@ def update_log():
     
     if not os.path.exists(LOGS_DIR):
         os.makedirs(LOGS_DIR)
+        print(f"Created directory: {LOGS_DIR}")
         
     # Load pool of realistic notes
     notes_pool = []
@@ -29,6 +30,7 @@ def update_log():
 
     # Robustness check: Ensure pool is not empty
     if not isinstance(notes_pool, list) or len(notes_pool) == 0:
+        print("Note pool empty. Using fallback.")
         notes_pool = [{
             "topic": "Documentation Review", 
             "summary": "Refreshed knowledge on recent library updates and best practices."
@@ -42,9 +44,11 @@ def update_log():
     if not os.path.exists(file_path):
         with open(file_path, "w") as f:
             f.write(header)
+            print(f"Initialized new log file: {file_path}")
             
     with open(file_path, "a") as f:
         f.write(entry)
+        print(f"Appended entry to {file_path}")
 
 if __name__ == "__main__":
     update_log()
