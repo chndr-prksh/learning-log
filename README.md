@@ -13,4 +13,4 @@ This repository serves as a record of small, frequent updates in my engineering 
 - `snippets/`: Focused code blocks and specific documentation reviews.
 
 ---
-*Note: This log is automated for daily check-ins to maintain a consistent learning habit.
+*Note: This log is automated for daily check-ins to maintain a consistent learning habit...
